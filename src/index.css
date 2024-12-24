@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "inter";
+  src: url(../Inter.ttf);
+}
+.Saasbtn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+  justify-content: center;
+}
+.loginpagebtn {
+  border: 1px solid rgba(216, 218, 229, 1);
+  border-radius: 8px;
+  padding: 16px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 600;
+  width: 320px;
+}
+.loginpagebtn > img {
+  width: 20px;
+  height: auto;
+}
+@media screen and (max-width: 756px) {
+  .loginpagebtn {
+    padding: 10px;
+    width: 200px;
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .loginpagebtn {
+    padding: 5px;
+    width: 150px;
+    font-size: 8px;
+  }
+}

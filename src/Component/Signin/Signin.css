@@ -1,0 +1,249 @@
+.Signin {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+}
+.Signin > * {
+  width: 50%;
+}
+.detactbox {
+  width: fit-content;
+  position: relative;
+  margin-top: 35%;
+  height: fit-content;
+  box-shadow: 0px 0px 24px 0 rgba(8, 23, 53, 0.16);
+  border-radius: 24px;
+  z-index: 2;
+  background-color: white;
+}
+
+.signinpageLeft {
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: center;
+  border-right: 1px solid rgba(216, 218, 229, 1);
+}
+.absolutefordetactbox {
+  position: absolute;
+  top: 95%;
+  left: 40%;
+  /* background-color: blue; */
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  box-shadow: 0px 0px 24px 0 rgba(8, 23, 53, 0.16);
+  gap: 20px;
+  z-index: 5;
+  background-color: white;
+}
+.absoluterowone {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+.absoluterowone > img {
+  width: 40px;
+  height: auto;
+}
+.arrowpercentage {
+  display: flex;
+  color: rgba(0, 73, 198, 1);
+  font-size: 15px;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+}
+.absoluterowonecontent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+.absoluterowonecontent > p {
+  font-size: 11px;
+  font-family: "inter";
+}
+.absoluterowtwo .detactbox {
+  position: relative;
+  margin-top: 30%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  box-shadow: 0px 0px 24px 0 rgba(8, 23, 53, 0.16);
+  height: fit-content;
+  padding: 20px;
+}
+.absoluterowtwo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.absoluterowtwo > p {
+  font-family: "inter";
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.absoluterowtwo > h6 {
+  font-size: 20px;
+  font-weight: 900;
+  font-family: "inter";
+}
+.detactboxrowone {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid rgba(230, 232, 240, 1);
+  align-items: center;
+  gap: 10px;
+}
+.detactboxrowone > img {
+  width: 20px;
+  height: auto;
+}
+.detactboxrowone > p {
+  font-family: "inter";
+  font-size: 12px;
+  font-weight: 900;
+}
+.detactboxrowtwo {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 50px;
+}
+.detactboxrowtwo > * {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  width: fit-content;
+  gap: 10px;
+}
+.countdetails > h6 {
+  font-family: "inter";
+  font-size: 12px;
+  font-weight: 900;
+}
+.countdetails > p {
+  font-family: "inter";
+  font-size: 10px;
+  font-weight: 400;
+}
+.shadorlogo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 15%;
+  height: auto;
+}
+
+.signinpageRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  gap: 40px;
+}
+.componentwoth {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 90%;
+
+  border: 1px solid rgba(213, 215, 218, 1);
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 0 rgba(10, 13, 18, 0.05);
+  border: 1px solid rgba(213, 215, 218, 1);
+}
+
+.signinpageRightdiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid rgba(213, 215, 218, 1);
+  padding: 20px 0px;
+}
+.codeintailogoWithText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.codeintailogoWithText > p {
+  font-size: 20px;
+  font-family: "inter";
+}
+.signinpageRightdiv > h4 {
+  font-family: "inter";
+  font-size: 30px;
+  font-weight: 700;
+}
+.buttiondiv {
+  display: flex;
+  background-color: rgb(250, 250, 250);
+}
+.buttiondiv button {
+  padding: 16px 54px;
+  border: 1px solid rgba(233, 234, 235, 1);
+  border-radius: 8px;
+  font-size: 16px;
+  color: black;
+}
+.componenttoogle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.privacytext {
+  font-family: "inter";
+}
+.privacytext > span {
+  font-weight: 700;
+}
+.buttionactive {
+  background-color: rgba(21, 112, 239, 1);
+  color: white !important;
+}
+
+@media screen and (max-width: 1100px) {
+  .signinpageLeft {
+    display: none;
+  }
+  .Signin > * {
+    width: 90%;
+  }
+  .Signin {
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media scrren and (max-width: 756px) {
+  .buttiondiv button {
+    padding: 10px 24px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .signinpageRightdiv > h4 {
+    font-size: 15px;
+  }
+  .codeintailogoWithText > p {
+    font-size: 10px;
+  }
+  .codeintailogoWithText > img {
+    width: 10px;
+    height: auto;
+  }
+  .buttiondiv button {
+    padding: 10px;
+    font-size: 10px;
+  }
+  .privacytext {
+    font-size: 10px;
+  }
+}
