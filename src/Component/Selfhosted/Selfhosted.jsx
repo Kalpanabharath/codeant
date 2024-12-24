@@ -9,11 +9,11 @@ const Selfhosted = () => {
     <div className="Saasbtn">
       <button className="loginpagebtn">
         <img src={bitbucketicon} alt="bitbucketicon" />
-        <Link to="/homepage">Self Hosted GitLab</Link>
+        <Link to="/codeant/homepage">Self Hosted GitLab</Link>
       </button>
       <button className="loginpagebtn">
         <img src={ssoicon} alt="ssoicon" />
-        <Link to="/homepage">Sign in with SSO</Link>
+        <Link to="/codeant/homepage">Sign in with SSO</Link>
       </button>
     </div>
   );

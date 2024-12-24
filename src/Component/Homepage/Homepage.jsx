@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logoimg from "../../assets/Subtract.png";
-import code from "../../assets/code.png";
 import home from "../../assets/home.png";
+import code from "../../assets/code.png";
 import cloud from "../../assets/cloud.png";
 import book from "../../assets/book.png";
 import setting from "../../assets/setting.png";
@@ -10,99 +10,65 @@ import logout from "../../assets/sign-out.png";
 import refreshicon from "../../assets/refreshicon.png";
 import plus from "../../assets/plus.png";
 import searchicon from "../../assets/Search.png";
-import "./Homepage.css";
-import Repocomponent from "../Repocomponent/Repocomponent";
 import bunbtn from "../../assets/bunbth.png";
 import into from "../../assets/into.png";
+import "./Homepage.css";
+import Repocomponent from "../Repocomponent/Repocomponent";
+import { BallTriangle } from "react-loader-spinner";
 
 const Homepage = () => {
-  let [showmobilenav, setshowmobilenav] = useState(false);
-  let repodetails = [
-    {
-      reponame: "design-system",
-      privacy: "Public",
-      technology: "React",
-      storage: "7320 KB",
-      tine: "Updated 1 day ago",
-    },
-    {
-      reponame: "codeant-ci-app",
-      privacy: "Private",
-      technology: "Javascript",
-      storage: "5871 KB",
-      tine: "Updated 2 days ago",
-    },
-    {
-      reponame: "analytics-dashboard",
-      privacy: "Private",
-      technology: "Python",
-      storage: "4521 KB",
-      tine: "Updated 5 days ago",
-    },
-    {
-      reponame: "mobile-app",
-      privacy: "Public",
-      technology: "Swift",
-      storage: "6210 KB",
-      tine: "Updated 6 days ago",
-    },
-    {
-      reponame: "blog-website",
-      privacy: "Public",
-      technology: "HTML/CSS",
-      storage: "1876 KB",
-      tine: "Updated 4 day ago",
-    },
-    {
-      reponame: "social-network",
-      privacy: "Public",
-      technology: "PHP",
-      storage: "5432 KB",
-      tine: "Updated 7 day ago",
-    },
-    {
-      reponame: "design-system",
-      privacy: "Public",
-      technology: "React",
-      storage: "7320 KB",
-      tine: "Updated 1 day ago",
-    },
-    {
-      reponame: "codeant-ci-app",
-      privacy: "Private",
-      technology: "Javascript",
-      storage: "5871 KB",
-      tine: "Updated 2 days ago",
-    },
-    {
-      reponame: "analytics-dashboard",
-      privacy: "Private",
-      technology: "Python",
-      storage: "4521 KB",
-      tine: "Updated 5 days ago",
-    },
-    {
-      reponame: "mobile-app",
-      privacy: "Public",
-      technology: "Swift",
-      storage: "6210 KB",
-      tine: "Updated 6 days ago",
-    },
-    {
-      reponame: "blog-website",
-      privacy: "Public",
-      technology: "HTML/CSS",
-      storage: "1876 KB",
-      tine: "Updated 4 day ago",
-    },
-    {
-      reponame: "social-network",
-      privacy: "Public",
-      technology: "PHP",
-      storage: "5432 KB",
-      tine: "Updated 7 day ago",
-    },
-  ];
+  const [showmobilenav, setshowmobilenav] = useState(false);
+  const [repodetails, setRepodetails] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const fetchRepos = async () => {
+    setLoading(true);
+    setError("");
+    try {
+      const response = await fetch(
+        "https://api.github.com/users/Kalpanabharath/repos"
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch repositories");
+      }
+      const data = await response.json();
+
+      // Map the API data into the expected format
+      const formattedRepos = data.map((repo) => {
+        const updatedDate = new Date(repo.updated_at);
+        const currentDate = new Date();
+        const timeDifference = Math.floor(
+          (currentDate - updatedDate) / (1000 * 60 * 60 * 24)
+        );
+
+        const updatedText =
+          timeDifference === 0
+            ? "Updated today"
+            : timeDifference === 1
+            ? "Updated yesterday"
+            : `Updated ${timeDifference} days ago`;
+
+        return {
+          reponame: repo.name,
+          privacy: repo.private ? "Private" : "Public",
+          technology: repo.language || "N/A",
+          storage: `${(repo.size / 1024).toFixed(2)} MB`,
+          tine: updatedText,
+        };
+      });
+
+      setRepodetails(formattedRepos);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchRepos();
+  }, []);
 
   return (
     <div className="Homepage">
@@ -112,14 +78,12 @@ const Homepage = () => {
             <img src={logoimg} alt="logoimg" />
             <p>CodeAnt AI</p>
           </div>
-
           <select id="username" name="user" className="selectbox">
-            <option value="apple">UtkarshDhairyaPanwar</option>
-            <option value="banana">kalpana</option>
-            <option value="cherry">bharath</option>
-            <option value="date">lokesh</option>
+            <option value="UtkarshDhairyaPanwar">UtkarshDhairyaPanwar</option>
+            <option value="kalpana">kalpana</option>
+            <option value="bharath">bharath</option>
+            <option value="lokesh">lokesh</option>
           </select>
-
           <ul>
             <li>
               <img src={home} alt="home" />
@@ -163,7 +127,6 @@ const Homepage = () => {
               <img src={logoimg} alt="logoimg" />
               <p>CodeAnt AI</p>
             </div>
-
             <img
               src={showmobilenav ? into : bunbtn}
               alt={showmobilenav ? "Close Menu" : "Open Menu"}
@@ -175,10 +138,10 @@ const Homepage = () => {
             className={showmobilenav ? "mobilenavlinkshow" : "mobilenavlinks"}
           >
             <select id="username" name="user" className="selectbox">
-              <option value="apple">UtkarshDhairyaPanwar</option>
-              <option value="banana">kalpana</option>
-              <option value="cherry">bharath</option>
-              <option value="date">lokesh</option>
+              <option value="UtkarshDhairyaPanwar">UtkarshDhairyaPanwar</option>
+              <option value="kalpana">kalpana</option>
+              <option value="bharath">bharath</option>
+              <option value="lokesh">lokesh</option>
             </select>
             <ul>
               <li>
@@ -216,10 +179,10 @@ const Homepage = () => {
             <div className="repositoryandbuttion">
               <div className="repositorybuttiontext">
                 <h5>Repositories</h5>
-                <p>33 total repositories</p>
+                <p>{repodetails.length} total repositories</p>
               </div>
               <div className="repositorybuttionbuttion">
-                <button>
+                <button onClick={fetchRepos}>
                   <img src={refreshicon} alt="refreshicon" />
                   Refresh All
                 </button>
@@ -239,9 +202,26 @@ const Homepage = () => {
             </div>
           </div>
           <div className="displayrepodiv">
-            {repodetails.map((obj) => (
-              <Repocomponent obj={obj} />
-            ))}
+            {loading ? (
+              <div className="loader-container">
+                <BallTriangle
+                  height={100}
+                  width={100}
+                  radius={5}
+                  color="#4fa94d"
+                  ariaLabel="ball-triangle-loading"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  visible={true}
+                />
+              </div>
+            ) : error ? (
+              <p style={{ color: "red" }}>{error}</p>
+            ) : (
+              repodetails.map((obj, index) => (
+                <Repocomponent key={index} obj={obj} />
+              ))
+            )}
           </div>
         </div>
       </div>

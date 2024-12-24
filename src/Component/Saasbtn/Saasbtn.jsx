@@ -11,19 +11,19 @@ const Saasbtn = () => {
     <div className="Saasbtn">
       <button className="loginpagebtn">
         <img src={githubicon} alt="githubicon" />
-        <Link to="/homepage">Sign in with Github</Link>
+        <Link to="/codeant/homepage">Sign in with Github</Link>
       </button>
       <button className="loginpagebtn">
         <img src={bitbucketicon} alt="bitbucketicon" />
-        <Link to="/homepage">Sign in with Bitbucket</Link>
+        <Link to="/codeant/homepage">Sign in with Bitbucket</Link>
       </button>
       <button className="loginpagebtn">
         <img src={devopsicon} alt="devopsicon" />
-        <Link to="/homepage"> Sign in with Azure Devops</Link>
+        <Link to="/codeant/homepage"> Sign in with Azure Devops</Link>
       </button>
       <button className="loginpagebtn">
         <img src={gitlabicon} alt="gitlabicon" />
-        <Link to="/homepage"> Sign in with GitLab</Link>
+        <Link to="/codeant/homepage"> Sign in with GitLab</Link>
       </button>
     </div>
   );
